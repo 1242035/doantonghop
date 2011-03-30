@@ -28,5 +28,17 @@ public class SanphamService {
 		return q.getResultList();
 		
 	}
+	public List<Sanpham> showsp(String masp)
+	{
+		Query q=em.createQuery("select a from Sanpham a where a.masp=:masp");
+		q.setParameter("masp", masp);
+		return q.getResultList();
+	}
+	public List<Sanpham> showmax()
+	{
+		Query q=em.createQuery("select a from Sanpham a order by a.gia asc limit 1,1");
+		return q.getResultList();
+		
+	}
 	
 }

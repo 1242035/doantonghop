@@ -78,7 +78,8 @@
                           
                          <li><a href="#" class="nav3">&#272;i&#7879;n tho&#7841;i cao c&#7845;p</a></li>
                          <li class="divider"></li>
-                         <%
+                         
+                           <%
                          out.print(
 								"<li><a href=\"timkiem\" class=\"nav2\">Tìm kiem</a></li>"
                          		+"<li class=\"divider\"></li>"
@@ -153,27 +154,98 @@
    
    <div class="center_content">
    	<div class="thanh_tieu_de_giua">S&#7843;n ph&#7849;m &#273;&#432;&#7907;c quan tâm nhi&#7873;u nh&#7845;t</div>
-    <c:forEach var="sp" items="${dssp}">
-    	<div class="prod_box">
+    
+    	<c:forEach var="sptc" items="${dssp}">
+    	
+    	
+        
+       
+		<div class="prod_box">
+        	
+                
+			 <div class="product_img"><img src="upload/${sptc.hinhanh }" alt="" title="" border="0" height='150' width='148'/></div>
+            
+			<a href="#" title="header=[Specials] "><img src="images/favs.gif" alt="" title="" border="0" class="left_bt" /></a>
+            <a href="#" title="header=[Gifts] "><img src="images/favorites.gif" alt="" title="" border="0" class="left_bt" /></a>
+	   </div>    
+			                 
+        
+		<div class="details_big_box">
+                         <div class="product_title_big">${sptc.tensp }</div>
+                         <div class="specifications">
+                           ${sptc.mota }
+                         </div>
+                         <div class="prod_price_big"></span> <span class="price">Gia:${sptc.gia }$</span></div>
+                         
+                        
+						<div><a href="index.htm">Quay lai trang chủ</a></div>
+	   </div>
+	   
+        
+        
+    	</c:forEach>
+ 		
+ 	<div class="thanh_tieu_de_giua">Phân trang</div>
+ 
+ <div class="thanh_tieu_de_giua">Hot</div>
+ 
+ 
+      	<div class="prod_box">
         	<div class="top_prod_box"></div>
             <div class="center_prod_box">            
-                 <div class="product_title"><a href=index.htm?id2=${sp.masp }>${sp.tensp }</a></div>
-                 <div class="product_img"><a href=index.htm?id2=${sp.masp }><img src="upload/${sp.hinhanh }" alt="" title="" border="0" height='92' width='97'/></a></div>
-                 <div class="prod_price"><span class="price">${sp.gia }</span><span class="reduce">$</span></div>                        
+                 <div class="product_title"><a href="details.html">Motorola 156 MX-VL</a></div>
+                 <div class="product_img"><a href="details.html"><img src="images/laptop.gif" alt="" title="" border="0" /></a></div>
+                 <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>                        
+            </div>
+            <div class="bottom_prod_box"></div>             
+            <div class="prod_details_tab">
+            
+            <a href="#" title="header=[Add to cart] "><img src="images/cart.gif" alt="" title="" border="0" class="left_bt" /></a>
+            <a href="#" title="header=[Specials] "><img src="images/favs.gif" alt="" title="" border="0" class="left_bt" /></a>
+            <a href="#" title="header=[Gifts] "><img src="images/favorites.gif" alt="" title="" border="0" class="left_bt" /></a>           
+            <a href="details.html" class="prod_details">details</a>            
+            </div>                     
+        </div>
+    
+    
+ 
+     	<div class="prod_box">
+        	<div class="top_prod_box"></div>
+            <div class="center_prod_box">            
+                 <div class="product_title"><a href="details.html">Iphone Apple</a></div>
+                 <div class="product_img"><a href="details.html"><img src="images/p4.gif" alt="" title="" border="0" /></a></div>
+                 <div class="prod_price"><span class="price">270$</span></div>                        
             </div>
             <div class="bottom_prod_box"></div>             
             <div class="prod_details_tab">
             <a href="#" title="header=[Add to cart] "><img src="images/cart.gif" alt="" title="" border="0" class="left_bt" /></a>
             <a href="#" title="header=[Specials] "><img src="images/favs.gif" alt="" title="" border="0" class="left_bt" /></a>
             <a href="#" title="header=[Gifts] "><img src="images/favorites.gif" alt="" title="" border="0" class="left_bt" /></a>           
-            <a href=index.htm?id2=${sp.masp }>details</a>            
+            <a href="details.html" class="prod_details">details</a>             
             </div>                     
         </div>
-    </c:forEach>
-    	
- 	<div class="thanh_tieu_de_giua">Phân trang</div>
+ 
+     	<div class="prod_box">
+        	<div class="top_prod_box"></div>
+            <div class="center_prod_box">            
+                 <div class="product_title"><a href="details.html">Samsung Webcam</a></div>
+                 <div class="product_img"><a href="details.html"><img src="images/p5.gif" alt="" title="" border="0" /></a></div>
+                 <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>                        
+            </div>
+            <div class="bottom_prod_box"></div>             
+            <div class="prod_details_tab">
+            <a href="#" title="header=[Add to cart] "><img src="images/cart.gif" alt="" title="" border="0" class="left_bt" /></a>
+            <a href="#" title="header=[Specials] "><img src="images/favs.gif" alt="" title="" border="0" class="left_bt" /></a>
+            <a href="#" title="header=[Gifts]"><img src="images/favorites.gif" alt="" title="" border="0" class="left_bt" /></a>           
+            <a href="details.html" class="prod_details">details</a>            
+            </div>                     
+        </div> 
  
  
+ 
+ 
+    
+    
    
    </div><!-- end of center content -->
    
@@ -204,11 +276,10 @@
     <div class="title_benphai">Máy tính xách tay</div>
     
     <ul class="left_menu">
-	<c:forEach var="lspdt" items="${dslspdt}">
-	<li class='even'>
+	<c:forEach var="lspdt" items="${dslspdt}" >
+		<li class='even'>
 	<a href="index.htm?id=${lspdt.maloai}">${lspdt.tenloai }</a>
 	</li>
-	
 	</c:forEach>
 	</ul>      
      

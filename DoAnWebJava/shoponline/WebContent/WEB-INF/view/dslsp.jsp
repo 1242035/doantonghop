@@ -159,8 +159,8 @@
     	<div class="prod_box">
         	<div class="top_prod_box"></div>
             <div class="center_prod_box">            
-                 <div class="product_title"><a href="details.html">${sptc.tensp }</a></div>
-                 <div class="product_img"><a href="details.html"><img src="upload/${sptc.hinhanh }" alt="" title="" border="0" height='92' width='97'/></a></div>
+                 <div class="product_title"><a href=index.htm?id2=${sptc.masp }>${sptc.tensp }</a></div>
+                 <div class="product_img"><a href=index.htm?id2=${sptc.masp }><img src="upload/${sptc.hinhanh }" alt="" title="" border="0" height='92' width='97'/></a></div>
                  <div class="prod_price"><span class="price">${sptc.gia }</span><span class="reduce">$</span></div>                        
             </div>
             <div class="bottom_prod_box"></div>             
@@ -168,7 +168,7 @@
             <a href="#" title="header=[Add to cart] "><img src="images/cart.gif" alt="" title="" border="0" class="left_bt" /></a>
             <a href="#" title="header=[Specials] "><img src="images/favs.gif" alt="" title="" border="0" class="left_bt" /></a>
             <a href="#" title="header=[Gifts] "><img src="images/favorites.gif" alt="" title="" border="0" class="left_bt" /></a>           
-            <a href="details.html" class="prod_details">details</a>            
+           <a href=index.htm?id2=${sptc.masp }>details</a>            
             </div>                     
         </div>
     	</c:forEach>

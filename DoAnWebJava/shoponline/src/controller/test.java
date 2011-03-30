@@ -12,15 +12,9 @@ public class test {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String tensp="LG";
 		SanphamService sp=new SanphamService();
-		for (Sanpham s : sp.findgd(tensp)) {
-				System.out.println(s.getMasp());
-				System.out.println(s.getTensp());
-				System.out.println(s.getHinhanh());
-				
-				System.out.println(s.getGia());
-				System.out.println("------------");
+		for (Sanpham s : sp.showmax()) {
+			System.out.println(s.getGia());
 		}
 		
 	}

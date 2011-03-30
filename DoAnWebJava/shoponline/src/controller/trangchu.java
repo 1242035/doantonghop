@@ -40,6 +40,7 @@ public class trangchu extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String view="WEB-INF/view/";
 		String id=request.getParameter("id");
+		String id2=request.getParameter("id2");
 		if(id!=null)
 		{
 			view=view+"chitietsp.jsp";
@@ -56,6 +57,22 @@ public class trangchu extends HttpServlet {
 		}
 		else
 		{
+			if(id2!=null)
+			{
+				view=view+"showchitiet.jsp";
+				List<Sanpham> dssp=sp.showsp(id2);
+				request.setAttribute("dssp", dssp);
+				
+				List<Loaisp> dslsp=lsp.findalllaptop();
+				request.setAttribute("dslsp",dslsp);
+				
+				List<Loaisp> dslspdt=lsp.findalldienthoai();
+				request.setAttribute("dslspdt",dslspdt);
+				
+				
+			}
+			else
+			{
 			view=view+"dslsp.jsp";
 			List<Loaisp> dslsp=lsp.findalllaptop();
 			request.setAttribute("dslsp", dslsp);
@@ -65,6 +82,7 @@ public class trangchu extends HttpServlet {
 			
 			List<Sanpham> sptc=sp.findall();
 			request.setAttribute("sptc", sptc);
+			}
 		}
 		RequestDispatcher dis=request.getRequestDispatcher(view);
 		dis.forward(request, response);
