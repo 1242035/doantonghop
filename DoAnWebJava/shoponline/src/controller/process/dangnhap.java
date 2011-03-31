@@ -34,8 +34,8 @@ public class dangnhap extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(true);
-		String url = "/WEB-INF/view/";
-		String s_err = " ";
+		String url = "/WEB-INF/view/process/dangnhap.jsp";
+		String s_err = "";
 
 		String tenkh = request.getParameter("tenkh");
 		String pass = request.getParameter("pass");
@@ -46,20 +46,18 @@ public class dangnhap extends HttpServlet {
 			if(kh_visiter != null){
 				if(kh_visiter.getPass().equals(pass)){
 					session.putValue("user", tenkh);
-					url += "dslsp.jsp";
+					url = "index.htm";
 				}
 				else{
-					url += "process/dangnhap.jsp";
-					s_err += "Nhap sai pass hoac ten";
+					s_err += "Nhap sai ten hoac pass";
 				}
 			}
 			else{
-				url += "process/dangnhap.jsp";
-				s_err += "Nhap sai pass hoac ten";
+				s_err += "Nhap sai ten hoac pass";
 			}
 		}
 		else{
-			url += "process/dangnhap.jsp";
+			
 		}
 		
 		request.setAttribute("s_err", s_err);

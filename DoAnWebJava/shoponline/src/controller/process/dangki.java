@@ -39,7 +39,7 @@ public class dangki extends HttpServlet {
 		// TODO Auto-generated method stub
 		String str_err = "";
 		HttpSession session = request.getSession(true);	
-		String url = "/WEB-INF/view/";
+		String url = "/WEB-INF/view/process/dangki.jsp";
 		
 		//get parameter
 		String tenkh = request.getParameter("tenkh");
@@ -60,20 +60,18 @@ public class dangki extends HttpServlet {
 			if(!tenkh.equals("") && !pass.equals("") && khsv.findByName(tenkh) == null){
 				if(khsv.createKhachhang(tenkh, dchi, phone, email, pass)){
 					session.putValue("user", tenkh);
-					url += "dslsp.jsp";
+					url = "index.htm";
 				}
 				else{
-					url += "process/dangki.jsp";
 					str_err += "Du lieu nhap sai hoac da co nguoi dang ki tai khoan nay";
 				}
 			}
 			else{
-				url += "process/dangki.jsp";
 				str_err += "Du lieu nhap sai hoac da co nguoi dang ki tai khoan nay";
 			}
 		}
 		else{
-			url += "process/dangki.jsp";
+			
 		}
 		
 		request.setAttribute("err", str_err);
