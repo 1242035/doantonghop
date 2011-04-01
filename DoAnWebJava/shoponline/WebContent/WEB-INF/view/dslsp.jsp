@@ -75,8 +75,12 @@
 							);
 					     %>
                           
-                         <li><a href="#" class="nav3">&#272;i&#7879;n tho&#7841;i cao c&#7845;p</a></li>
-                         <li class="divider"></li>
+                          <%
+                         out.print(
+								"<li><a href=\"upload\" class=\"nav2\">Upload</a></li>"
+                         		+"<li class=\"divider\"></li>"
+							);
+					     %>
                          
                            <%
                          out.print(
@@ -85,8 +89,12 @@
 							);
 					     %>
                                                  
-                         <li><a href="#" class="nav5">My account </a></li>
-                         <li class="divider"></li>
+                         <%
+                         out.print(
+								"<li><a href=\"phantrang\" class=\"nav2\">Phan trang</a></li>"
+                         		+"<li class=\"divider\"></li>"
+							);
+					     %>
                         
                          <li class="currencies">Currencies
                          <select>

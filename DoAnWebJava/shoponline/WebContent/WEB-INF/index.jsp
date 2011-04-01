@@ -1,27 +1,10 @@
 <%@page import="java.sql.*"%>
 <%
-Connection con=null;
-PreparedStatement pstatement = null;
-String line = null;
-String value=null;
-	String url = "jdbc:mysql://localhost:3306/";
-	String dbName = "dienthoai";
-	String driver = "com.mysql.jdbc.Driver";
-	String userName = "root"; 
-	String password = "";
-	Class.forName("com.mysql.jdbc.Driver");
-
-	con = DriverManager.getConnection(url+dbName,userName,password);
-
-	String queryString = "select * from sanpham";
-	
-	//out.println(queryString);
-	
-	pstatement=con.prepareStatement(queryString);
-	 
-	
-   
-	ResultSet rs=pstatement.executeQuery(queryString);
+Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+Connection con=DriverManager.getConnection("jdbc:odbc:dienthoai");
+Statement stm=con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+String st="select * from sanpham";
+ResultSet rs=stm.executeQuery(st);
 rs.last();
 int tong=rs.getRow();
 rs.beforeFirst();
@@ -45,12 +28,12 @@ rs.absolute((pn-1)*2);
 <img border="0" src="images/header1_01.gif" width="375" height="97"><img border="0" src="images/header1_02.gif" width="402" height="97"><img border="0" src="images/header_br.jpg" width="170" height="98"></p>
 <p align="left">
 <% if (pn*n<tong){%>
-<a href="phantrang.jsp?p=<%=pn+1%>">Next </a>&nbsp;&nbsp;
+<a href="mathangphantrang.jsp?p=<%=pn+1%>">Next </a>&nbsp;&nbsp;
 <% }else {%>
 Next
 <%}%>
 <% if (pn>1){%>
-<a href="phantrang.jsp?p=<%=pn-1%>">Previous</a>
+<a href="mathangphantrang.jsp?p=<%=pn-1%>">Previous</a>
 <% } else {%>
 Previous
 <%}%>
@@ -76,13 +59,13 @@ String hinh=rs.getString("hinhanh");
 i++;
 %>
 <tr>
-<td><img src="upload/<%=hinh%>">&nbsp;</td>
+<td><img src="[IMAGE]/<%=hinh%>">&nbsp;</td>
 <td width="20%"><%=tenhang%>&nbsp;</td>
 <td width="20%"><%=mota%>&nbsp;</td>
 <td width="23%"><%=dongia%>&nbsp;</td>
 </tr>
 <%}
-
+stm.close();
 con.close();
 %>
 </table>

@@ -15,6 +15,7 @@
 			<property name="eclipselink.jdbc.read-connections.shared" value="false" />
 			<property name="eclipselink.jdbc.bind-parameters" value="false"/>
 			<property name="eclipselink.jdbc.cache-statements" value="false" />
+			<property name="eclipselink.jdbc.native-sql" value="false"/>
 		</properties>
 	</persistence-unit>
 </persistence>

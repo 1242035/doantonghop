@@ -1,5 +1,4 @@
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    pageEncoding="UTF-8"%>
     
  <%! String name; %>
  
@@ -63,7 +62,7 @@
 					     <%
 					    	name = (String)session.getAttribute("user");
 					    	if(name == null)out.print(
-								"<li><a href=\"dangki\" class=\"nav2\">&#272;&#259;ng kÃ­</a></li>"
+								"<li><a href=\"dangki\" class=\"nav2\">&#272;&#259;ng kí</a></li>"
                         		+"<li class=\"divider\"></li>"
                         		
                         		+"<li><a href=\"dangnhap\" class=\"nav4\">&#272;&#259;ng nh&#7853;p</a></li>"
@@ -80,7 +79,7 @@
                          
                            <%
                          out.print(
-								"<li><a href=\"timkiem\" class=\"nav2\">TÃ¬m kiem</a></li>"
+								"<li><a href=\"timkiem\" class=\"nav2\">Tìm kiem</a></li>"
                          		+"<li class=\"divider\"></li>"
 							);
 					     %>

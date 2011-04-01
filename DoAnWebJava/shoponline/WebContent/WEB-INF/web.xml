@@ -59,4 +59,24 @@
     <servlet-name>timkiem</servlet-name>
     <url-pattern>/timkiem</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>phantrang</display-name>
+    <servlet-name>phantrang</servlet-name>
+    <servlet-class>controller.phantrang</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>phantrang</servlet-name>
+    <url-pattern>/phantrang</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>upload</display-name>
+    <servlet-name>upload</servlet-name>
+    <servlet-class>controller.upload</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>upload</servlet-name>
+    <url-pattern>/upload</url-pattern>
+  </servlet-mapping>
 </web-app>
