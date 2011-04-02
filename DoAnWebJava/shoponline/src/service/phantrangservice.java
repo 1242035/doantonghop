@@ -8,22 +8,23 @@ import javax.persistence.Query;
 import model.Sanpham;
 
 import util.jpautil;
-
+import java.sql.*;
 public class phantrangservice {
+	String value=null;
+	String line = null;
 	
+	PreparedStatement pstatement = null;
+	String url = "jdbc:mysql://localhost:3306/";
+	String dbName = "dienthoai";
+	String driver = "com.mysql.jdbc.Driver";
+	String userName = "root"; 
+	String password = "";
 	
-
 	private EntityManager em;
 	public phantrangservice(){
 		em=jpautil.getenEntityManager();
 
 	
-	}
-	public List<Sanpham> findall()
-	{
-		Query q=em.createQuery("select count(a) from Sanpham a");
-		List<Sanpham>hang=q.getResultList();
-		return hang;
 	}
 	
 	

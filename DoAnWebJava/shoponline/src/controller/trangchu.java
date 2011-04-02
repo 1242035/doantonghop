@@ -41,6 +41,7 @@ public class trangchu extends HttpServlet {
 		String view="WEB-INF/view/";
 		String id=request.getParameter("id");
 		String id2=request.getParameter("id2");
+		String p=request.getParameter("p");
 		if(id!=null)
 		{
 			view=view+"chitietsp.jsp";
@@ -73,15 +74,27 @@ public class trangchu extends HttpServlet {
 			}
 			else
 			{
-			view=view+"dslsp.jsp";
-			List<Loaisp> dslsp=lsp.findalllaptop();
-			request.setAttribute("dslsp", dslsp);
-			
-			List<Loaisp> dslspdt=lsp.findalldienthoai();
-			request.setAttribute("dslspdt",dslspdt);
-			
-			List<Sanpham> sptc=sp.findall();
-			request.setAttribute("sptc", sptc);
+				if(p!=null)
+				{
+					view=view+"phantrang.jsp";
+					
+					List<Loaisp> dslsp=lsp.findalllaptop();
+					request.setAttribute("dslsp",dslsp);
+					
+					List<Loaisp> dslspdt=lsp.findalldienthoai();
+					request.setAttribute("dslspdt",dslspdt);
+				}
+				else
+				{
+					view=view+"phantrang.jsp";
+					
+					List<Loaisp> dslsp=lsp.findalllaptop();
+					request.setAttribute("dslsp",dslsp);
+					
+					List<Loaisp> dslspdt=lsp.findalldienthoai();
+					request.setAttribute("dslspdt",dslspdt);
+				}
+				
 			}
 		}
 		RequestDispatcher dis=request.getRequestDispatcher(view);

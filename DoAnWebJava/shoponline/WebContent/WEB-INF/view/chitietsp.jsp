@@ -1,7 +1,42 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+ <%@page import="java.sql.*"%>
+<%
+Connection con=null;
+PreparedStatement pstatement = null;
+String line = null;
+String value=null;
+	String url = "jdbc:mysql://localhost:3306/";
+	String dbName = "dienthoai";
+	String driver = "com.mysql.jdbc.Driver";
+	String userName = "root"; 
+	String password = "";
+	Class.forName("com.mysql.jdbc.Driver");
+
+	con = DriverManager.getConnection(url+dbName,userName,password);
+
+	String queryString = "select * from sanpham";
+	
+	//out.println(queryString);
+	
+	pstatement=con.prepareStatement(queryString);
+	 
+	
+   
+	ResultSet rs=pstatement.executeQuery(queryString);
+rs.last();
+int tong=rs.getRow();
+rs.beforeFirst();
+int n=9,pn=1;
+String ps=request.getParameter("p");
+if (ps!=null) {
+pn=Integer.parseInt(ps);
+if (pn!=1)
+rs.absolute((pn-1)*2);
+}
+%>   
  <%! String name; %>
+ 
  
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -75,17 +110,26 @@
 							);
 					     %>
                           
-                         <li><a href="#" class="nav3">&#272;i&#7879;n tho&#7841;i cao c&#7845;p</a></li>
-                         <li class="divider"></li>
-                         <%
+                          <%
+                         out.print(
+								"<li><a href=\"upload\" class=\"nav2\">Upload</a></li>"
+                         		+"<li class=\"divider\"></li>"
+							);
+					     %>
+                         
+                           <%
                          out.print(
 								"<li><a href=\"timkiem\" class=\"nav2\">Tìm kiem</a></li>"
                          		+"<li class=\"divider\"></li>"
 							);
 					     %>
                                                  
-                         <li><a href="#" class="nav5">My account </a></li>
-                         <li class="divider"></li>
+                         <%
+                         out.print(
+								"<li><a href=\"phantrang\" class=\"nav2\">Phan trang</a></li>"
+                         		+"<li class=\"divider\"></li>"
+							);
+					     %>
                         
                          <li class="currencies">Currencies
                          <select>

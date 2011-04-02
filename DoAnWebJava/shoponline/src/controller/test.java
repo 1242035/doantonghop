@@ -15,8 +15,7 @@ public class test {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		phantrangservice sp=new phantrangservice();
-		System.out.print(sp.findall());
+	
 	
 		
 	}
