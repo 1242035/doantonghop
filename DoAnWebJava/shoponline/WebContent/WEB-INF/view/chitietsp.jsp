@@ -14,21 +14,22 @@ String value=null;
 	Class.forName("com.mysql.jdbc.Driver");
 
 	con = DriverManager.getConnection(url+dbName,userName,password);
-
-	String queryString = "select * from sanpham";
+	String id=request.getParameter("id");
+	out.println(id);
+	String queryString = "select * from sanpham where maloai="+id;
 	
-	//out.println(queryString);
+	out.println(queryString);
 	
 	pstatement=con.prepareStatement(queryString);
-	 
+	
 	
    
 	ResultSet rs=pstatement.executeQuery(queryString);
 rs.last();
 int tong=rs.getRow();
 rs.beforeFirst();
-int n=9,pn=1;
-String ps=request.getParameter("p");
+int n=2,pn=1;
+String ps=request.getParameter("p2");
 if (ps!=null) {
 pn=Integer.parseInt(ps);
 if (pn!=1)
@@ -39,7 +40,8 @@ rs.absolute((pn-1)*2);
  
  
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<%@page import="javax.management.Query"%><html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
 <title>Electronix Store</title>
@@ -196,23 +198,55 @@ rs.absolute((pn-1)*2);
    
    <div class="center_content">
    	<div class="thanh_tieu_de_giua">S&#7843;n ph&#7849;m &#273;&#432;&#7907;c quan tâm nhi&#7873;u nh&#7845;t</div>
-    <c:forEach var="sp" items="${dssp}">
-    	<div class="prod_box">
+    	<% if (pn*n<tong){%>
+
+<a href=<%out.print("index.htm?p2=");%><%=pn+1%><%out.print("&id=");%><%=id%>>Next </a>&nbsp;&nbsp;
+<% }else {%>
+Next
+<%}%>
+<% if (pn>1){%>
+<a href=<%out.print("index.htm?p2=");%><%=pn-1%><%out.print("&id=");%><%=id%>>Previous</a>
+<% } else {%>
+Previous
+<%}%>
+
+
+</p>
+
+<%
+int i=0;
+while (rs.next() && (i<n)){
+String mahang=rs.getString("masp");
+String tenhang=rs.getString("tensp");
+String mota=rs.getString("mota");
+int dongia=rs.getInt("gia");
+String hinh=rs.getString("hinhanh");
+i++;
+%>
+		<div class="prod_box">
         	<div class="top_prod_box"></div>
             <div class="center_prod_box">            
-                 <div class="product_title"><a href=index.htm?id2=${sp.masp }>${sp.tensp }</a></div>
-                 <div class="product_img"><a href=index.htm?id2=${sp.masp }><img src="upload/${sp.hinhanh }" alt="" title="" border="0" height='92' width='97'/></a></div>
-                 <div class="prod_price"><span class="price">${sp.gia }</span><span class="reduce">$</span></div>                        
+                 <div class="product_title"><a href=index.htm?id2=<%=mahang %>><%=tenhang%></a></div>
+                 <div class="product_img"><a href=index.htm?id2=<%=mahang %>><img src="upload/<%=hinh%>" alt="" title="" border="0" height='92' width='97'/></a></div>
+                 <div class="prod_price"><span class="price"><%=dongia%></span><span class="reduce">$</span></div>                        
             </div>
             <div class="bottom_prod_box"></div>             
             <div class="prod_details_tab">
             <a href="#" title="header=[Add to cart] "><img src="images/cart.gif" alt="" title="" border="0" class="left_bt" /></a>
             <a href="#" title="header=[Specials] "><img src="images/favs.gif" alt="" title="" border="0" class="left_bt" /></a>
             <a href="#" title="header=[Gifts] "><img src="images/favorites.gif" alt="" title="" border="0" class="left_bt" /></a>           
-            <a href=index.htm?id2=${sp.masp }>details</a>            
+            <a href=index.htm?id2=<%=mahang %>>details</a>            
             </div>                     
         </div>
-    </c:forEach>
+<%}
+
+con.close();
+%>
+
+<p align="center">&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
     	
  	<div class="thanh_tieu_de_giua">Phân trang</div>
  

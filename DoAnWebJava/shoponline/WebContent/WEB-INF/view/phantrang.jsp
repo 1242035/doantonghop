@@ -32,7 +32,7 @@ String ps=request.getParameter("p");
 if (ps!=null) {
 pn=Integer.parseInt(ps);
 if (pn!=1)
-rs.absolute((pn-1)*2);
+rs.absolute((pn-1)*9);
 }
 %>   
  <%! String name; %>
