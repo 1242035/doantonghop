@@ -3,7 +3,7 @@
 <HEAD><TITLE>Display file upload form to the user</TITLE></HEAD>  
 
   <BODY> <FORM  ENCTYPE="multipart/form-data" ACTION=
-"upload_page.jsp" METHOD=POST>
+<% out.print("\"upload\"");%> METHOD=POST>
 		<br><br><br>
 	  <center>
 	  <table border="0" bgcolor=#ccFDDEE>
@@ -22,7 +22,7 @@
 	     <td colspan="2" align="center">&nbsp;</td>
 	   </tr>
        <tr>
-	     <td colspan="2" align="center"><INPUT TYPE="submit"  VALUE="Send File" ></td>
+	     <td colspan="2" align="center"><INPUT TYPE="submit"  VALUE="Send File" name="submit"></td>
 	   </tr>
              <table>
      </center>      

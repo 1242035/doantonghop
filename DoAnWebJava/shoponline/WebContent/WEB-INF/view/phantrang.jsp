@@ -25,7 +25,7 @@ String value=null;
 rs.last();
 int tong=rs.getRow();
 rs.beforeFirst();
-int n=2,pn=1;
+int n=9,pn=1;
 String ps=request.getParameter("p");
 if (ps!=null) {
 pn=Integer.parseInt(ps);
@@ -40,17 +40,15 @@ rs.absolute((pn-1)*2);
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 <title>Phan trang</title>
 </head>
-<body background="[IMAGE]/NEN/Bground5.JPG">
-<p align="left">
-<img border="0" src="images/header1_01.gif" width="375" height="97"><img border="0" src="images/header1_02.gif" width="402" height="97"><img border="0" src="images/header_br.jpg" width="170" height="98"></p>
-<p align="left">
+
 <% if (pn*n<tong){%>
-<a href="phantrang.jsp?p=<%=pn+1%>">Next </a>&nbsp;&nbsp;
+
+<a href=<%out.print("phantrang?p=");%><%=pn+1%>>Next </a>&nbsp;&nbsp;
 <% }else {%>
 Next
 <%}%>
 <% if (pn>1){%>
-<a href="phantrang.jsp?p=<%=pn-1%>">Previous</a>
+<a href=<%out.print("phantrang?p=");%><%=pn-1%>>Previous</a>
 <% } else {%>
 Previous
 <%}%>

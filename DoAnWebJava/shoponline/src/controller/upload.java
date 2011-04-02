@@ -30,11 +30,11 @@ public class upload extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String tensp=request.getParameter("tensp");
+		String file=request.getParameter("submit");
 		String view="WEB-INF/view/";
-		if(tensp!=null)
+		if(file!=null)
 		{
-			view=view+"page_upload.jsp";
+			view=view+"upload_page.jsp";
 			
 			
 			
