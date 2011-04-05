@@ -1,31 +1,18 @@
-<%@ page language="java" %>
-<HTml>
-<HEAD><TITLE>Display file upload form to the user</TITLE></HEAD>  
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jstl example</title>
+</head>
+<body>
+<form action="" method="get" enctype="multipart/form-data">
+<!-- enctype="multipart/form-data" -->
+<input type="file" name=file>
 
-  <BODY> <FORM  ENCTYPE="multipart/form-data" ACTION=
-<% out.print("\"upload\"");%> METHOD=POST>
-		<br><br><br>
-	  <center>
-	  <table border="0" bgcolor=#ccFDDEE>
-         <tr>
-		   <center>
-		   <td colspan="2" align="center"><B>UPLOAD THE FILE WITH CURRENT DATE AND TIME</B><center></td>
-		  </tr>
-		    <tr>
-	     <td colspan="2" align="center">&nbsp;</td>
-	   </tr>
-           <tr>
-		     <td><b>Choose the file To Upload:</b></td>
-            <td><INPUT NAME="file" TYPE="file"></td>
-		   </tr>
-		    <tr>
-	     <td colspan="2" align="center">&nbsp;</td>
-	   </tr>
-       <tr>
-	     <td colspan="2" align="center"><INPUT TYPE="submit"  VALUE="Send File" name="submit"></td>
-	   </tr>
-             <table>
-     </center>      
-     </FORM>
-</BODY>
-</HTML>
+<input type="submit" name="submit" value="Hay vao di"></input>
+</body>
+</form>
+</html> 
