@@ -3,6 +3,7 @@
 	<persistence-unit name="shoponline" transaction-type="RESOURCE_LOCAL">
 		<class>model.Admin</class>
 		<class>model.Chitiethd</class>
+		<class>model.ChitiethdPK</class>
 		<class>model.Hoadon</class>
 		<class>model.Khachhang</class>
 		<class>model.Loaisp</class>
@@ -13,9 +14,9 @@
 			<property name="eclipselink.jdbc.password" value=""/>
 			<property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
 			<property name="eclipselink.jdbc.read-connections.shared" value="false" />
-			<property name="eclipselink.jdbc.bind-parameters" value="false"/>
 			<property name="eclipselink.jdbc.cache-statements" value="false" />
-			<property name="eclipselink.jdbc.native-sql" value="false"/>
+			<property name="eclipselink.jdbc.native-sql" value="false" />
+			<property name="eclipselink.jdbc.bind-parameters" value="false"/>
 		</properties>
 	</persistence-unit>
 </persistence>

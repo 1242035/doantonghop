@@ -35,10 +35,13 @@ if (pn!=1)
 rs.absolute((pn-1)*9);
 }
 %>   
- <%! String name; %>
+ <%! String name; 
+ 	Khachhang kh;
+ %>
  
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<%@page import="model.Khachhang"%><html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
 <title>Electronix Store</title>
@@ -145,7 +148,7 @@ rs.absolute((pn-1)*9);
     <span class="mauchu">
     
     <%
-    	name = (String)session.getAttribute("user");
+    	name = ((String)session.getAttribute("user"));
     	if(name == null)out.print("Vui long dang nhap !!");
     	else out.print("Xin chao ban : " + name );
      %>

@@ -41,7 +41,8 @@ rs.absolute((pn-1)*2);
  
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<%@page import="javax.management.Query"%><html xmlns="http://www.w3.org/1999/xhtml">
+<%@page import="javax.management.Query"%>
+<%@page import="model.Khachhang"%><html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
 <title>Electronix Store</title>
@@ -232,7 +233,13 @@ i++;
             </div>
             <div class="bottom_prod_box"></div>             
             <div class="prod_details_tab">
-            <a href="#" title="header=[Add to cart] "><img src="images/cart.gif" alt="" title="" border="0" class="left_bt" /></a>
+            
+            
+            <% 
+           		if(name != null)out.print("<a href=\"CardController?cmd=add&id=" + mahang + "\"><img src=\"images/cart.gif\" alt=\"\" title=\"\" border=\"0\" class=\"left_bt\" /></a>");
+            %>
+            
+            
             <a href="#" title="header=[Specials] "><img src="images/favs.gif" alt="" title="" border="0" class="left_bt" /></a>
             <a href="#" title="header=[Gifts] "><img src="images/favorites.gif" alt="" title="" border="0" class="left_bt" /></a>           
             <a href=index.htm?id2=<%=mahang %>>details</a>            
@@ -255,18 +262,9 @@ con.close();
    </div><!-- end of center content -->
    
    <div class="right_content">
-   		<div class="gio_hang">
-        	<div class="cart_title">Shopping cart</div>
-            
-            <div class="cart_details">
-            3 items <br />
-            <span class="border_cart"></span>
-            Total: <span class="price">350$</span>
-            </div>
-            
-            <div class="cart_icon"><a href="#" title="header=[Checkout] body=[&nbsp;] fade=[on]"><img src="images/shoppingcart.png" alt="" title="" width="48" height="48" border="0" /></a></div>
-        
-        </div>
+   <% if(name != null) {%>
+   <%@ include file = "card/card.jsp" %>
+   <% }%> 
    
    
      <div class="title_box">What’s new</div>  
@@ -275,8 +273,6 @@ con.close();
          <div class="product_img"><a href="details.html"><img src="images/p2.gif" alt="" title="" border="0" /></a></div>
          <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
      </div>  
-     
-     
      
     <div class="title_benphai">Máy tính xách tay</div>
     
@@ -303,7 +299,6 @@ con.close();
    
    <div class="footer">
    
-
         <div class="left_footer">
         <img src="images/samsung.jpg" alt="" title="" width="170" height="80"/>
         </div>

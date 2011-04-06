@@ -79,4 +79,44 @@
     <servlet-name>upload</servlet-name>
     <url-pattern>/upload</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>demo</display-name>
+    <servlet-name>demo</servlet-name>
+    <servlet-class>controller.process.demo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>demo</servlet-name>
+    <url-pattern>/demo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>demotest</display-name>
+    <servlet-name>demotest</servlet-name>
+    <servlet-class>controller.demotest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>demotest</servlet-name>
+    <url-pattern>/demotest</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CardController</display-name>
+    <servlet-name>CardController</servlet-name>
+    <servlet-class>controller.CardController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CardController</servlet-name>
+    <url-pattern>/CardController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>quanlycard</display-name>
+    <servlet-name>quanlycard</servlet-name>
+    <servlet-class>controller.card.quanlycard</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>quanlycard</servlet-name>
+    <url-pattern>/quanlycard</url-pattern>
+  </servlet-mapping>
 </web-app>

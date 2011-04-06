@@ -13,10 +13,10 @@ import javax.persistence.*;
 public class Chitiethd implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	private String macthd;
+	@EmbeddedId
+	private ChitiethdPK id;
 
-	private int gia;
+	private long gia;
 
 	private long soluong;
 
@@ -33,19 +33,26 @@ public class Chitiethd implements Serializable {
     public Chitiethd() {
     }
 
-	public String getMacthd() {
-		return this.macthd;
+    public Chitiethd(ChitiethdPK id, long gia,long soluong) {
+		super();
+		this.id = id;
+		this.gia = gia;
+		this.soluong = soluong;
+	}
+    
+	public ChitiethdPK getId() {
+		return this.id;
 	}
 
-	public void setMacthd(String macthd) {
-		this.macthd = macthd;
+	public void setId(ChitiethdPK id) {
+		this.id = id;
 	}
-
-	public int getGia() {
+	
+	public long getGia() {
 		return this.gia;
 	}
 
-	public void setGia(int gia) {
+	public void setGia(long gia) {
 		this.gia = gia;
 	}
 

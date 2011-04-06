@@ -3,10 +3,11 @@ package service;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import util.jpautil;
-import java.util.List;
 import model.Loaisp;
 import model.Sanpham;
+
+import util.jpautil;
+import java.util.List;
 public class LoaispService {
 	private EntityManager em;
 	public LoaispService(){
@@ -28,7 +29,7 @@ public class LoaispService {
 		Query q=em.createQuery("select a from Loaisp a where a.hieu=0");
 		return q.getResultList();
 	}
-	//sua lai , chjo xiu ac ac
+	//
 	public List<Sanpham> findListSPByID(String maloai)
 	{
 		Loaisp lsp = this.findByID(maloai);

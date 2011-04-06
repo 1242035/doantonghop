@@ -10,12 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.w3c.dom.ls.LSParser;
 
+import model.Loaisp;
+import model.Sanpham;
+
 import service.LoaispService;
 import service.SanphamService;
 
 import java.util.List;
-import model.Loaisp;
-import model.Sanpham;
 /**
  * Servlet implementation class trangchu
  */

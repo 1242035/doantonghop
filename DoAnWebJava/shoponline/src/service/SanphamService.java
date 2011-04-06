@@ -5,8 +5,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-
 import model.Sanpham;
+
+
 
 import util.jpautil;
 
@@ -39,6 +40,12 @@ public class SanphamService {
 		Query q=em.createQuery("select a from Sanpham a order by a.gia asc limit 1,1");
 		return q.getResultList();
 		
+	}
+
+	public Sanpham findSanPhamByID(String masp){
+		Query q=em.createQuery("select a from Sanpham a where a.masp=:masp");
+		q.setParameter("masp", masp);
+		return (Sanpham)q.getSingleResult();
 	}
 	
 }

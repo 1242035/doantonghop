@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import model.Khachhang;
 
+
 import service.KhachhangService;
 
 /**
@@ -43,9 +44,10 @@ public class dangnhap extends HttpServlet {
 		if(tenkh != null && pass != null){
 			
 			Khachhang kh_visiter = khsv.findByName(tenkh);
+			
 			if(kh_visiter != null){
 				if(kh_visiter.getPass().equals(pass)){
-					session.putValue("user", tenkh);
+					session.putValue("user", kh_visiter.getTenkh());
 					url = "index.htm";
 				}
 				else{

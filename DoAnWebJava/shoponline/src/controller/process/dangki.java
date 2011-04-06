@@ -11,9 +11,10 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.Session;
 
+import model.Khachhang;
+
 import service.KhachhangService;
 
-import model.Khachhang;
 
 /**
  * Servlet implementation class dangki
@@ -60,6 +61,7 @@ public class dangki extends HttpServlet {
 			if(!tenkh.equals("") && !pass.equals("") && khsv.findByName(tenkh) == null){
 				if(khsv.createKhachhang(tenkh, dchi, phone, email, pass)){
 					session.putValue("user", tenkh);
+					System.out.print("dasdj;asmd");
 					url = "index.htm";
 				}
 				else{

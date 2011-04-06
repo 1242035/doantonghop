@@ -9,11 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Loaisp;
+import model.Sanpham;
+
 import service.LoaispService;
 import service.SanphamService;
 
-import model.Loaisp;
-import model.Sanpham;
 
 /**
  * Servlet implementation class phantrang

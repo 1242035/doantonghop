@@ -5,9 +5,10 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import model.Khachhang;
+
 import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
 
-import model.Khachhang;
 
 import util.jpautil;
 

@@ -16,12 +16,11 @@ public class Hoadon implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String mahd;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int mahd;
 
     @Temporal( TemporalType.DATE)
 	private Date ngay;
-
-	private long thanhtien;
 
 	//bi-directional many-to-one association to Chitiethd
 	@OneToMany(mappedBy="hoadon")
@@ -35,11 +34,11 @@ public class Hoadon implements Serializable {
     public Hoadon() {
     }
 
-	public String getMahd() {
+	public int getMahd() {
 		return this.mahd;
 	}
 
-	public void setMahd(String mahd) {
+	public void setMahd(int mahd) {
 		this.mahd = mahd;
 	}
 
@@ -49,14 +48,6 @@ public class Hoadon implements Serializable {
 
 	public void setNgay(Date ngay) {
 		this.ngay = ngay;
-	}
-
-	public long getThanhtien() {
-		return this.thanhtien;
-	}
-
-	public void setThanhtien(long thanhtien) {
-		this.thanhtien = thanhtien;
 	}
 
 	public List<Chitiethd> getChitiethds() {
