@@ -41,23 +41,14 @@ public class upload extends HttpServlet {
 		String file=request.getParameter("file");
 		System.out.println(file);
 		String view="WEB-INF/view/";
-		if(file!=null)
-		{
-			view=view+"upload_trang.jsp?file="+file;
-			
-			System.out.println("xac dinh duoc bien gui qua");
-			
-			
-		}
-		else
-		{
-			view=view+"trang.jsp";
-			System.out.println("chua xac dinh dc");
+		
+			view=view+"upload.jsp";
 			
 			
 			
 			
-		}
+			
+		
 		RequestDispatcher dis=request.getRequestDispatcher(view);
 		dis.forward(request, response);
 	}

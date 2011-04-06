@@ -8,8 +8,8 @@
 
 	String homeDir = "";	
 	homeDir= getServletContext().getRealPath("").split(".metadata")[0];
-	homeDir = homeDir+"shoponline\\WebContent\\images\\";
-	System.out.println(homeDir);
+	homeDir = homeDir+"shoponline\\WebContent\\upload\\";
+	//System.out.println(homeDir);
 
 		try {
 			
@@ -118,7 +118,7 @@ response.setContentType("text/html");
     %>
 <SCRIPT language="javascript">
   history.back(1)
-  alert('Uploaded <%=lastFileName%>');
+  alert('Them thanh cong: <%=lastFileName%>');
   document.write("<img src='images/<%=lastFileName%>'>");
  // window.location.reload(false)
 </SCRIPT>
@@ -126,3 +126,19 @@ response.setContentType("text/html");
     }
     out.println("done");
 %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<%@page import="java.io.ObjectInputStream.GetField"%><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form name="uploadForm" action="/upload" enctype="multipart/form-data" method="post">
+  <input type="file" name="file"/>
+  <input TYPE=Button name='Upload' Value='Upload' onClick="uploadForm.Upload.value='Uploading...';document.uploadForm.action='upload';document.uploadForm.submit()">
+</form>
+</body>
+</html>
+
+
