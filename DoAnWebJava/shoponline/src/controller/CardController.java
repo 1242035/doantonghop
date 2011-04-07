@@ -83,6 +83,21 @@ public class CardController extends HttpServlet {
 			hdsv.create(card.getItems().values(),tenkh);
 			card.removeAll();
 		}
+		else if(cmd.equals("update")){
+			
+			String masp = "";
+			int sl = 0;
+			for(int i = 0 ; i < card.getCound() ; i++){
+				for(model.CardItem item : card.getItems().values()){
+					masp = item.getSanpham().getMasp();
+					sl = Integer.parseInt(request.getParameter("soluong" + masp));
+					
+					if(sl > 0 && sl < 99){
+						card.update(masp, sl);
+					}
+				}
+			}
+		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(view);
 		rd.forward(request, response);

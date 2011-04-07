@@ -119,9 +119,11 @@
     </span>
     </div>                   
     
+   <form action="CardController">
+   <input name="cmd" value="update" style="display: none"></input>
     <div>
     	<a href="index.htm"><H2>Quay lai trang chu</H2> </a>
-		<table border=1 cellspacing="0">
+		<table border=1 cellspacing="0" align="center">
 		<tr>
 			<th>No.</th>
 			<th>Ten san pham</th>
@@ -138,23 +140,25 @@
 		<tr>
 				<td>${i }</td>
 				<td>${sanpham.tensp }</td>
-				<td><input type="text" value="${qty }"/></td>
+				<td><input type="text" name = "soluong${sanpham.masp}" value="${qty }"/></td>
 				<td>${sanpham.gia }</td>
 				<td>${sanpham.gia * qty }</td>
 				<td><a href="CardController?cmd=remove&id=${sanpham.masp}">Remove</a></td>
 		</tr>
 		</c:forEach>
 		<tr >
-			<td colspan="4" align="right">Total:</td>
+			<td colspan="4" align="right">Tong so tien phai tra :</td>
 			<td colspan="2">${card.total }</td>
 		</tr>
 		<tr>
 		<td colspan="6"><a href="CardController?cmd=checkout">Mua hang</a> - <a href="CardController?cmd=removeall">Xoa het gio hang</a></td>
 		</tr>
+		<tr><input type="submit" value="update"></input></tr>
 		</table>
     </div>
     
 </div>
+</form>
 <!-- end of main_container -->
 </body>
 </html>
