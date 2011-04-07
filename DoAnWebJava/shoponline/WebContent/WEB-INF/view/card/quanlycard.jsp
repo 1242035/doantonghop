@@ -120,7 +120,7 @@
     </div>                   
     
     <div>
-    	<a href="index.htm"><H2>Continue shopping...</H2> </a>
+    	<a href="index.htm"><H2>Quay lai trang chu</H2> </a>
 		<table border=1 cellspacing="0">
 		<tr>
 			<th>No.</th>
@@ -138,7 +138,7 @@
 		<tr>
 				<td>${i }</td>
 				<td>${sanpham.tensp }</td>
-				<td>${qty }</td>
+				<td><input type="text" value="${qty }"/></td>
 				<td>${sanpham.gia }</td>
 				<td>${sanpham.gia * qty }</td>
 				<td><a href="CardController?cmd=remove&id=${sanpham.masp}">Remove</a></td>
@@ -149,7 +149,7 @@
 			<td colspan="2">${card.total }</td>
 		</tr>
 		<tr>
-		<td colspan="6"><a href="CardController?cmd=checkout">Check out</a> - <a href="CardController?cmd=removeall">Clear all</a></td>
+		<td colspan="6"><a href="CardController?cmd=checkout">Mua hang</a> - <a href="CardController?cmd=removeall">Xoa het gio hang</a></td>
 		</tr>
 		</table>
     </div>

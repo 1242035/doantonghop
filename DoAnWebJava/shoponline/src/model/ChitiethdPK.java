@@ -19,10 +19,10 @@ public class ChitiethdPK implements Serializable {
     public ChitiethdPK() {
     }
     
-    public ChitiethdPK(int mahd, String bookId) {
+    public ChitiethdPK(int mahd, String masp) {
 		super();
 		this.mahd = mahd;
-		this.masp = bookId;
+		this.masp = masp;
 	}
     
 	public int getMahd() {

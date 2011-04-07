@@ -15,7 +15,6 @@ public class Loaisp implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private String maloai;
 
 	private int hieu;

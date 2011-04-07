@@ -23,16 +23,8 @@ public class HoadonService {
 	}
 	
 	public void create(Collection<CardItem> cardItems , String tenkh){
-		
-//		for(CardItem ci : cardItems){
-//			System.out.print("->" + ci.getSanpham().getTensp());
-//		}
-		
-		//System.out.print("->" + tenkh);
 		Khachhang kh = khsv.findByName(tenkh);
-//		
-		//System.out.print("->" + kh.getEmail() + "\n" + kh.getPhone());
-		
+
 		Hoadon hd = new Hoadon();
 		hd.setNgay(new Date());
 		hd.setKhachhang(kh);
@@ -43,11 +35,13 @@ public class HoadonService {
 		
 		List<Chitiethd> items = new ArrayList<Chitiethd>();
 		for(CardItem ci:cardItems) {
-			ChitiethdPK newPK = new ChitiethdPK(hd.getMahd(),ci.getSanpham().getMasp());
-			items.add(new Chitiethd((newPK),ci.getSanpham().getGia(),ci.getQty()));
+			items.add(new Chitiethd(new ChitiethdPK(hd.getMahd(),ci.getSanpham().getMasp()),
+					ci.getSanpham().getGia(),
+					ci.getQty()));
 		}
 	
 		hd.setChitiethds(items);
+		
 		em.getTransaction().begin();
 		em.merge(hd);
 		em.getTransaction().commit();

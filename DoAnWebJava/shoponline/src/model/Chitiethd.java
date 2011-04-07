@@ -20,26 +20,27 @@ public class Chitiethd implements Serializable {
 
 	private long soluong;
 
-	//bi-directional many-to-one association to Sanpham
-    @ManyToOne
-	@JoinColumn(name="masp")
-	private Sanpham sanpham;
-
 	//bi-directional many-to-one association to Hoadon
     @ManyToOne
-	@JoinColumn(name="mahd")
+	@JoinColumn(name="mahd",nullable=true,insertable=false,updatable=false)
 	private Hoadon hoadon;
+
+	//bi-directional many-to-one association to Sanpham
+    @ManyToOne
+	@JoinColumn(name="masp",nullable=true,insertable=false,updatable=false)
+	private Sanpham sanpham;
 
     public Chitiethd() {
     }
-
+    
     public Chitiethd(ChitiethdPK id, long gia,long soluong) {
 		super();
+		
 		this.id = id;
 		this.gia = gia;
 		this.soluong = soluong;
 	}
-    
+
 	public ChitiethdPK getId() {
 		return this.id;
 	}
@@ -64,20 +65,20 @@ public class Chitiethd implements Serializable {
 		this.soluong = soluong;
 	}
 
-	public Sanpham getSanpham() {
-		return this.sanpham;
-	}
-
-	public void setSanpham(Sanpham sanpham) {
-		this.sanpham = sanpham;
-	}
-	
 	public Hoadon getHoadon() {
 		return this.hoadon;
 	}
 
 	public void setHoadon(Hoadon hoadon) {
 		this.hoadon = hoadon;
+	}
+	
+	public Sanpham getSanpham() {
+		return this.sanpham;
+	}
+
+	public void setSanpham(Sanpham sanpham) {
+		this.sanpham = sanpham;
 	}
 	
 }

@@ -33,8 +33,9 @@ response.setContentType("text/html");
     String imagename="";
     final int BOUNDARY_WORD_SIZE = "boundary=".length();
     if(contentType == null || !contentType.startsWith("multipart/form-data")) {
-      err = "Ilegal ENCTYPE : must be multipart/form-data\n";
-      err += "ENCTYPE set = " + contentType;
+     // err = "Ilegal ENCTYPE : must be multipart/form-data\n";
+     // err += "ENCTYPE set = " + contentType;
+     err="Chon hinh de up";
     }else{
       boundary = contentType.substring(contentType.indexOf("boundary=") + BOUNDARY_WORD_SIZE);
       boundary = "--" + boundary;
