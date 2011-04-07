@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.io.*" %>
+<%@ page import="service.SanphamService"%>
 <%
  
      // Get the absolute path to file that lives in this application
  
-
+	
 	String homeDir = "";	
 	homeDir= getServletContext().getRealPath("").split(".metadata")[0];
 	homeDir = homeDir+"shoponline\\WebContent\\upload\\";
@@ -106,8 +107,22 @@ response.setContentType("text/html");
               buffer.write(b,0,x);
           }
         }
+        String masp=request.getParameter("masp");
+	 	String tensp=request.getParameter("tensp");
+	 	String maloai=request.getParameter("maloai");
+//	 	Long gia=Long.parseLong(request.getParameter("gia"));
+	 	String file=lastFileName;
+	 	long gia=10000;
+	 	String mota=request.getParameter("mota");
+        SanphamService sp=new SanphamService();
+        sp.createsp(masp,tensp,maloai,gia,file,mota);
         sis.close();
         buffer.close();
+        
+        
+        
+        
+        
       }catch(java.io.IOException e) {
         err = e.toString();
       }
@@ -136,10 +151,14 @@ response.setContentType("text/html");
 </head>
 <body>
 <form name="uploadForm" action="/upload" enctype="multipart/form-data" method="post">
+  <input type="text" name="masp"/>
+  <input type="text" name="tensp"/>
+  <input type="text" name="maloai"/>
+  <input type="text" name="gia"/>
+  <input type="text" name="mota"/>
   <input type="file" name="file"/>
+  
   <input TYPE=Button name='Upload' Value='Upload' onClick="uploadForm.Upload.value='Uploading...';document.uploadForm.action='upload';document.uploadForm.submit()">
 </form>
 </body>
 </html>
-
-

@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import model.Khachhang;
-
+import service.SanphamService;
 import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
 
 

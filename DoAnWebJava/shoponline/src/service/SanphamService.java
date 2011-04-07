@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import model.Khachhang;
+import model.Loaisp;
 import model.Sanpham;
 
 
@@ -47,5 +49,28 @@ public class SanphamService {
 		q.setParameter("masp", masp);
 		return (Sanpham)q.getSingleResult();
 	}
-	
+	public boolean createsp(String masp, String tensp, String maloai, Long gia, String hinhanh,String mota){
+		try{
+			em.getTransaction().begin();
+			LoaispService lsp=new LoaispService();
+			Loaisp ls=lsp.findByID(maloai);
+			Sanpham sp=new Sanpham();
+			sp.setMasp(masp);
+			sp.setTensp(tensp);
+			sp.setLoaisp(ls);
+			sp.setGia(gia);
+			sp.setHinhanh(hinhanh);
+			sp.setMota(mota);
+			
+			
+			em.persist(sp);
+			
+			em.getTransaction().commit();
+			return true;
+		}
+		catch(Exception e){
+			System.out.print("Error when creating from KhachhangService");
+		}
+		return false;
+	}
 }
